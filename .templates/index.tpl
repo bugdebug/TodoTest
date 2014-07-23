@@ -51,8 +51,8 @@
     function showResponse(responseText, statusText, xhr, $form)  {
         var output = $("#output");
         if (statusText == 'success' && responseText != 0) {
-            output.html('<div class="alert alert-success" role="alert" id="successBar">Success</div>');
-            setTimeout(function () { $("#successBar").fadeOut(); }, 1000);
+            output.html('<div class="alert alert-success" role="alert" id="successBar">Успешно добавлено</div>');
+            setTimeout(function () { $("#successBar").fadeOut(); }, 5000);
             $('#todoTable > tbody:last').append(
                 '<tr>' +
                 '<td>' + responseText.id + '</td>' +
@@ -64,7 +64,7 @@
         } else {
             output.html('<div class="alert alert-danger alert-dismissible" role="alert">' +
                 '<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span>' +
-                '<span class="sr-only">Close</span></button>Error happened while trying to add item!</div>');
+                '<span class="sr-only">Close</span></button>Произошла ошибка при добавлении!</div>');
         }
         //alert('status: ' + statusText + '\n\nresponseText: \n' + responseText +
         //        '\n\nThe output div should have already been updated with the responseText.');

@@ -11,5 +11,13 @@
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script src="//malsup.github.com/jquery.form.js"></script>
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <style type="text/css">
+            .finished td {
+                text-decoration: line-through;
+            }
+            .timedout td {
+                color: red;
+            }
+        </style>
     </head>
 <body>

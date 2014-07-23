@@ -91,7 +91,7 @@ function add() {
         $res = Posts_PostMapper::getInstance()->insert($post);
         if ($res) {
             $post->setId($res);
-            $res = $post->toArray();
+            $res = $post->toArrayOut();
             $res['text'] = isset($res['text']) ? htmlspecialchars($res['text']) : "";
         }
     }

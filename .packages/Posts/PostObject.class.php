@@ -18,7 +18,7 @@ class Posts_PostObject extends Data_Object {
     );
 
     public function getDeadlineFormatted() {
-        $months = array (
+        $months = array(
             1 => 'января',
             2 => 'февраля',
             3 => 'марта',
@@ -30,8 +30,23 @@ class Posts_PostObject extends Data_Object {
             9 => 'сентября',
             10 => 'октября',
             11 => 'ноября',
-            12 => 'декабря');
-        //$format = str_replace("%m",$months[(int)date('m',$timestamp)],$format);
-        return $this->getDeadline();
+            12 => 'декабря'
+        );
+
+        $time = strtotime($this->getDeadline());
+        if (!$time) return false;
+
+        return date("j", $time) . " " . $months[date("n", $time)];
+    }
+
+
+    /**
+     * @return array
+     */
+    public function toArrayOut() {
+        $data = parent::toArray();
+        $data['deadlineFormatted'] = $this->getDeadlineFormatted();
+        $data['timedOut'] = time() > strtotime($this->getDeadline()) ? 1 : 0;
+        return $data;
     }
 }

@@ -55,7 +55,7 @@ class Data_ResultSet implements ArrayAccess {
     public function toArrayRecursive() {
         $data = array();
         /** @var $row Data_Object */
-        foreach ($this->container as $row) $data[] = $row->toArray();
+        foreach ($this->container as $row) $data[] = $row->toArrayOut();
         return $data;
     }
 

@@ -57,7 +57,7 @@
                 '<tr>' +
                 '<td>' + responseText.id + '</td>' +
                 '<td style="width: 80%">' + responseText.text + '</td>' +
-                '<td><nobr>' + responseText.deadline + '</nobr></td>' +
+                '<td><nobr>' + responseText.deadlineFormatted + '</nobr></td>' +
                 '<td><input type="checkbox"><td>' +
                 '</tr>'
             );
@@ -77,6 +77,7 @@
             data: ({id: rowId, action: "check"}),
             dataType: "json",
             success: function(msg){
+                $("#row" + rowId).attr('class', 'finished');
                 $("#rowCheckBox" + rowId).attr('disabled', 'disabled');
             }
         });
